@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Adarsh ♡</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff7eb;
+  color: #632d32;
+  font-family: Georgia, serif;
+  text-align: center;
+}
+
+section {
+  min-height: 100vh;
+  padding: 35px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  background: #8e2635;
+  color: #fff7eb;
+}
+
+h1 { font-size: 48px; }
+h2 { color: #982e3d; font-size: 32px; }
+
+.hero h1 { color: #fff7eb; }
+
+p {
+  max-width: 390px;
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+button {
+  background: #982e3d;
+  color: white;
+  border: none;
+  padding: 15px 23px;
+  border-radius: 30px;
+  font-size: 15px;
+  margin: 12px;
+  cursor: pointer;
+}
+
+.hero button {
+  background: #fff7eb;
+  color: #8e2635;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 5px 20px #632d3215;
+  margin: 12px auto;
+}
+
+.heart {
+  font-size: 65px;
+  animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.15); }
+}
+
+.hidden { display: none; }
+
+.photo {
+  width: min(100%, 320px);
+  height: 280px;
+  background: #f2dfd0;
+  border: 8px solid white;
+  display: grid;
+  place-items: center;
+  font-size: 60px;
+  margin: 15px auto;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+footer {
+  background: #8e2635;
+  color: white;
+  padding: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero" id="home">
+  <div class="heart">♡</div>
+  <p>A little something made just for you...</p>
+  <h1>My Penguin 🐧</h1>
+  <h2 style="color:#fff7eb">Adarsh ❤️</h2>
+  <p>Someone very special deserves a little surprise.</p>
+  <button onclick="openPage('welcome')">
+    Open your gift 💌
+  </button>
+</section>
+
+<section id="welcome" class="hidden">
+  <h2>Hiiii, Penguin! 🐧</h2>
+  <div class="card">
+    <div class="heart">❤️</div>
+    <p>
+      Welcome to this tiny corner of the internet
+      that I made especially for you.
+
+      You have no idea how much thought went into this.
+      So please keep clicking. Hehe.
+    </p>
+  </div>
+  <button onclick="openPage('reasons')">Next ♡</button>
+</section>
+
+<section id="reasons" class="hidden">
+  <h2>Reasons why you're special</h2>
+  <div class="card">
+    <div class="heart">♡</div>
+    <h3 id="reason">Your smile.</h3>
+    <button onclick="nextReason()">Another one!</button>
+  </div>
+  <button onclick="openPage('memories')">Continue →</button>
+</section>
+
+<section id="memories" class="hidden">
+  <h2>Our little memories 📸</h2>
+  <div class="photo">🐧❤️</div>
+  <div class="card">
+    <p>
+      Some moments might seem ordinary,
+      but they're the little things I want to remember.
+
+      Every laugh, every silly conversation,
+      and every little moment with you.
+    </p>
+  </div>
+  <button onclick="openPage('letter')">A letter for you 💌</button>
+</section>
+
+<section id="letter" class="hidden">
+  <h2>Dear Penguin,</h2>
+  <div class="card">
+    <p>
+      I don't think you realise how much happiness
+      you bring into my life.
+
+      Thank you for being you.
+      Thank you for the smiles, the laughs,
+      and all the little moments that mean
+      more to me than I can explain.
+
+      I hope you always know how special
+      you are to me.
+
+      You deserve all the love and happiness
+      in this world.
+
+      With lots and lots of love,
+      Your favourite person ♡
+    </p>
+  </div>
+  <button onclick="openPage('final')">One last surprise ❤️</button>
+</section>
+
+<section id="final" class="hidden">
+  <div class="heart">❤️</div>
+  <h1>Happy Boyfriend's Day!</h1>
+  <div class="card">
+    <h2>To my Adarsh 🐧</h2>
+    <p>
+      My favourite penguin,
+      my favourite person,
+      and someone I'm so grateful to have.
+
+      Here's to more memories,
+      more laughter, and more little moments.
+
+      I love youuu! ❤️
+    </p>
+    <h2>Forever your favourite girl ♡</h2>
+  </div>
+  <button onclick="document.getElementById('ending').innerHTML='Sending you the biggest virtual hug ever! 🐧❤️'">
+    Open one last secret 🎁
+  </button>
+  <p id="ending"></p>
+</section>
+
+<footer>Made with love, just for Adarsh ♡</footer>
+
+<script>
+const reasons = [
+  "Your smile. ❤️",
+  "Your silly little personality.",
+  "The way you make me laugh.",
+  "Our random conversations.",
+  "The little things you do.",
+  "Simply because you're YOU. ♡"
+];
+
+let i = 0;
+
+function openPage(id) {
+  document.getElementById(id).classList.remove('hidden');
+  document.getElementById(id).scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+
+function nextReason() {
+  i = (i + 1) % reasons.length;
+  document.getElementById('reason').textContent = reasons[i];
+}
+</script>
+
+</body>
+</html>
